@@ -16,6 +16,9 @@ const Register = () => {
                 <div className="py-2">
                     <input type="text" id="repeat-password" name="repeat-password" className="form-control" placeholder="Repeat Password" />
                 </div>
+                <div className="py-2">
+                    <input type="text" id="imageUrl" name="imageUrl" className="form-control" placeholder="Profile Picture URL" />
+                </div>
                 <p className="form-link">Already have an account? <Link to="/login">Sign in here.</Link></p>
                 <button type="submit" className="btn btn-primary rounded-pill mt-4">Register</button>
             </form>
