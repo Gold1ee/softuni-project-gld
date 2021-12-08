@@ -7,15 +7,15 @@ const Home = () => {
                 <div className="container h-100">
                     <div className="row align-items-center h-100">
                         <div className="col-lg-6 py-3 wow fadeInUp">
-                            <h1 className="mb-4">Great Companies are built on great Products</h1>
-                            <p className="text-lg mb-5">Ignite the most powerfull growth engine you have ever built for your company</p>
+                            <h1 className="mb-4">oSynergy</h1>
+                            <p className="text-lg mb-5">A Counter-Strike Global Offensive team</p>
 
                             <Link to="#" className="btn btn-outline border text-secondary">More Info</Link>
-                            <Link to="#" className="btn btn-primary btn-split ml-2">Watch Video <div className="fab"><span className="mai-play"></span></div></Link>
+                            <Link to="#" className="btn btn-primary btn-split ml-2">Join our Discord <div className="fab"><img id='discord'src="./assets/img/home/discord.png"/></div></Link>
                         </div>
                         <div className="col-lg-6 py-3 wow zoomIn">
                             <div className="img-place">
-                                <img src="./assets/img/bg_image_1.png" alt="" />
+                                <img src="./assets/img/home/Logo-BlckT.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -75,9 +75,7 @@ const Home = () => {
                             <h2 className="title-section">We're <span className="marked">Dynamic</span> Team of Creatives People</h2>
                             <div className="divider"></div>
                             <p>We provide marketing services to startups  small business to looking for partner for their digital media, design  dev lead generation communication.</p>
-                            <div className="img-place mb-3">
-                                <img src="./assets/img/testi_image.png" alt="" />
-                            </div>
+                            
                             <Link to="#" className="btn btn-primary">More Details</Link>
                             <Link to="#" className="btn btn-outline border ml-2">Success Stories</Link>
                         </div>
