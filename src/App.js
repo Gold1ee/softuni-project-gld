@@ -5,6 +5,9 @@ import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header/Header.js'
 import Home from './components/Home/Home.js'
 import About from './components/About/About.js'
+import PlayerList from './components/PlayerList/PlayerList.js'
+import Login from './components/Login/Login.js'
+import Register from './components/Register/Register.js'
 
 
 function App() {
@@ -14,6 +17,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
+          <Route path='/player-list' element={<PlayerList/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/register' element={<Register/>}/>
         </Routes>
         
       

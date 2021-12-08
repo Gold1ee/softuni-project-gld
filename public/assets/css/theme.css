@@ -26,6 +26,8 @@ body {
   font-family: "Work Sans", sans-serif;
   line-height: 1.5;
   color: #2D2B3A;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 a {
@@ -1273,7 +1275,9 @@ a.text-dark:hover, a.text-dark:focus {
 
 .img-place img {
   width: auto;
-  max-width: 100%;
+  border-radius: 5%;
+  margin-right: 20%;
+  max-width: 70%;
   height: auto;
 }
 
@@ -1382,7 +1386,7 @@ a.text-dark:hover, a.text-dark:focus {
   position: relative;
   padding-top: 80px;
   padding-bottom: 80px;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
   overflow: hidden;
 }
 
@@ -1396,7 +1400,6 @@ a.text-dark:hover, a.text-dark:focus {
   margin-top: 16px;
   margin-bottom: 16px;
   height: 320px;
-  background-color: #F6F5FC;
   color: #645F88;
   border-radius: 30px;
 }
@@ -1404,7 +1407,7 @@ a.text-dark:hover, a.text-dark:focus {
 .page-banner.home-banner {
   margin-top: 100px;
   height: auto;
-  background-color: #fff;
+  background-color: white;
   border-radius: 0;
 }
 
@@ -2227,3 +2230,22 @@ a.text-dark:hover, a.text-dark:focus {
 .owl-carousel button.owl-dot.active {
   background-color: #6C55F9;
 }
+.goals-heading{
+  margin-bottom: 3%;
+  text-align: center;
+}
+#team-info-about{
+  margin-left:14%;
+}
+.player-card{
+  margin-top: 3%;
+}
+#login-form{
+  margin-top: 8%;
+  margin-left: 25%;
+}
+.form-link{
+  margin-left: 0.5%;
+  margin-top: 1%;
+}
+
