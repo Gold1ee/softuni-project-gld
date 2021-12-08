@@ -12,6 +12,7 @@ const Home = () => {
 
                             <Link to="/about" className="btn btn-outline border text-secondary">More Info</Link>
                             <Link to="/discord" className="btn btn-primary btn-split ml-2">Join our Discord <div className="fab"><img id='discord' src="./assets/img/home/discord.png" /></div></Link>
+                            
                         </div>
                         <div className="col-lg-6 py-3 wow zoomIn">
                             <div className="img-place">
