@@ -1525,7 +1525,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 
 .btn-split {
-  display: inline-flex;
+  display: inline;
   align-items: center;
   border-radius: 40px;
   padding-top: 6px;
@@ -2252,9 +2252,7 @@ a.text-dark:hover, a.text-dark:focus {
 margin-top: 10%;
 }
 #faceit{
-  position: relative;
-  width: 500%;
-  padding-right: 121px;
-  padding-bottom: 5px;
+  width: 10%;
+  margin-bottom: 1%;
 }
 

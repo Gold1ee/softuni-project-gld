@@ -17,7 +17,7 @@ const PlayerCard = ({ player }) => {
                         <li className="player-card-p">Average hs %: {player.hs}</li>
                         </ul>
                         <p></p>
-                        <Link to="/faceit" className="btn btn-primary btn-split ml-2">Faceit Account <div className="fab"><img id='faceit' src="./assets/img/logos/faceit.png" /></div></Link>
+                        <Link to="/faceit" className="btn btn-primary btn-split ml-2">Faceit Account <img id='faceit' src="./assets/img/logos/faceit.png" /></Link>
                     </div>
                     <div className="col-lg-6 py-3">
                         <div className="img-place text-center">

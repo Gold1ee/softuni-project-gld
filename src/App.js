@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import authService from "./services/authService.js";
 
 
 
@@ -12,23 +13,52 @@ import Register from './components/Register/Register.js'
 import Blog from './components/Blog/Blog.js'
 import Discord from './components/Discord/Discord.js'
 import Faceit from './components/Faceit/Faceit.js'
+import Logout from './components/Logout/Logout.js'
 
 
 function App() {
-  //if ( window.location.path === "discord" ){
-  //window.location = "https://discord.gg/Wuukfe9AMW"
-  //}
+  const [userInfo, setUser] = useState({ isAuth: false, email: '' })
+  useEffect(() => {
+    let user = authService.getUsername();
+
+    setUser({
+      isAuth: Boolean(user),
+      user: user
+    })
+
+
+  }, []);
+  const onLogin = (username) => {
+    setUser({
+        isAuth: true,
+        user: username
+    })
+}
+const onRegister = (username) => {
+  setUser({
+      isAuth: true,
+      user: username
+  })
+}
+const onLogout = () => {
+  setUser({
+      isAuth: false,
+      user: ''
+  })
+}
   return (
     <div id='container'>
-      <Header />
+      <Header {...userInfo}/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/player-list' element={<PlayerList />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login onLogin={onLogin}/>} />
+        <Route path='/register' element={<Register onRegister={onRegister}/>} />
         <Route path='/blog' element={<Blog />} />
-        <Route path='/faceit' element={<Faceit/> } />
+        <Route path='/faceit' element={<Faceit />} />
+        <Route path='/discord' element={<Discord />} />
+        <Route path='/logout' element={<Logout onLogout={onLogout} />} />
       </Routes>
 
 

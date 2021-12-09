@@ -1,17 +1,22 @@
 import { Link } from 'react-router-dom'
+import authService from "../../services/authService.js";
+import { useNavigate, Navigate } from 'react-router-dom'
 
-const Login = () => {
-    const onLoginHandler = (e) => {
+const Login = ({
+    onLogin
+}) => {
+    const navigate = useNavigate()
+    const onLoginHandler = async (e) => {
         e.preventDefault()
 
         let formData = new FormData(e.currentTarget);
-        let username = formData.get('username')
-        let password = formData.get('password')
-        console.log(username);
-        console.log(password);
-        //authService.login(email)
-        //onLogin(email)
-        //navigate('/')
+        let user = {
+            email: formData.get('email'),
+            password: formData.get('password')
+        }
+        let loginResult = await authService.login(user);
+        onLogin(user.email)
+        navigate('/')
     }
     return (
         <div id="login-form" className="col-lg-6 py-3 wow fadeInUp">

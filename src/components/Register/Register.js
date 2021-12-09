@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom'
 import authService from "../../services/authService.js";
 import { useNavigate, Navigate } from 'react-router-dom'
 
-const Register = () => {
+const Register = ({
+    onRegister
+}) => {
     const navigate = useNavigate()
     const onRegisterHandler = async (e) => {
         e.preventDefault()
@@ -14,7 +16,7 @@ const Register = () => {
             imageUrl: formData.get('imageUrl'),
         }
         let registerResult = await authService.register(user)
-
+        onRegister(user.email)
         navigate('/')
     }
     return (
