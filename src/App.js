@@ -11,6 +11,7 @@ import Login from './components/Login/Login.js'
 import Register from './components/Register/Register.js'
 import Blog from './components/Blog/Blog.js'
 import Discord from './components/Discord/Discord.js'
+import Faceit from './components/Faceit/Faceit.js'
 
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/blog' element={<Blog />} />
-        <Route path='/discord' element={<Discord/> } />
+        <Route path='/faceit' element={<Faceit/> } />
       </Routes>
 
 

@@ -1277,7 +1277,7 @@ a.text-dark:hover, a.text-dark:focus {
   width: auto;
   border-radius: 5%;
   margin-right: 20%;
-  max-width: 70%;
+  max-width: 75%;
   height: auto;
 }
 
@@ -2247,5 +2247,14 @@ a.text-dark:hover, a.text-dark:focus {
 .form-link{
   margin-left: 0.5%;
   margin-top: 1%;
+}
+.player-card-text-wrapper{
+margin-top: 10%;
+}
+#faceit{
+  position: relative;
+  width: 500%;
+  padding-right: 121px;
+  padding-bottom: 5px;
 }
 
