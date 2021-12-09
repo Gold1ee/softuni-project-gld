@@ -20,7 +20,7 @@ const Login = () => {
 
             <form onSubmit={onLoginHandler}>
                 <div className="py-2">
-                    <input type="text" id="username" name="username" className="form-control" placeholder="Username" />
+                    <input type="text" id="email" name="email" className="form-control" placeholder="Email" />
                 </div>
                 <div className="py-2">
                     <input type="text" id="password" name="password" className="form-control" placeholder="Password" />
