@@ -26,7 +26,7 @@ const Register = ({
 
             <form onSubmit={onRegisterHandler}>
                 <div className="py-2">
-                    <input type="text" id="email" name="email" className="form-control" placeholder="Email" />
+                    <input type="text" id="email" name="email" className="form-control" placeholder="Username" />
                 </div>
                 <div className="py-2">
                     <input type="text" id="password" name="password" className="form-control" placeholder="Password" />

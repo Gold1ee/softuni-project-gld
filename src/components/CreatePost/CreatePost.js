@@ -2,9 +2,12 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import createPostService from "../../services/createPostService.js";
 import { useNavigate, Navigate } from 'react-router-dom'
+import authService from '../../services/authService'
 
 const CreatePost = () => {
     const navigate = useNavigate()
+    const username = authService.getUsername()
+    const userImage = authService.getUserImage()
     const createPostHandler = async (e) => {
         e.preventDefault()
         let formData = new FormData(e.currentTarget);
@@ -14,7 +17,9 @@ const CreatePost = () => {
         let post = {
             title: title,
             miniDescription: miniDesc,
-            description: description
+            description: description,
+            imageUrl: userImage,
+            owner: username,
         }
         let result = createPostService.createPost(post)
 
@@ -31,15 +36,20 @@ const CreatePost = () => {
                 <h2 className="mb-5">Create a post</h2>
                 <form onSubmit={createPostHandler} className="">
                     <div className="form-row form-group">
+
                         <div className="col-md-6">
                             <label htmlFor="title">Title *</label>
                             <input type="text" className="form-control" id="title" name="title" />
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-md-6 mini-desc">
                             <label htmlFor="mini-description">Mini description *</label>
                             <input type="mini-description" className="form-control" id="mini-description" name="mini-description" />
                         </div>
                     </div>
+                        <div className="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" id="email" name="email" defaultValue={username}/>
+                        </div>
 
                     <div className="form-group">
                         <label htmlFor="description">Description</label>

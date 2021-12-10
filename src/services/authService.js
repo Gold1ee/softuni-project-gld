@@ -13,6 +13,9 @@ function getUsername(){
 function getUserId(){
     return localStorage.getItem('userId');
 }
+function getUserImage(){
+    return localStorage.getItem('imageUrl');
+}
 
 function isLoggedIn(){
     return localStorage.getItem('authToken') !== null;
@@ -23,6 +26,8 @@ async function login(user){
     localStorage.setItem('authToken', result.accessToken);
     localStorage.setItem('userId', result._id);
     localStorage.setItem('username', result.email);
+    localStorage.setItem('imageUrl', result.imageUrl);
+    return result
 }
 
 async function register(user){
@@ -30,6 +35,8 @@ async function register(user){
     localStorage.setItem('authToken', result.accessToken);
     localStorage.setItem('userId', result._id);
     localStorage.setItem('username', result.email);
+    localStorage.setItem('imageUrl', result.imageUrl);
+    return result
 }
 
 async function logout(user){
@@ -44,5 +51,6 @@ export default {
     isLoggedIn,
     login,
     register,
+    getUserImage,
     logout
 }

@@ -6,10 +6,10 @@ const BlogPostCard = ({ post }) => {
             <div className="card-blog">
                 <div className="header">
                     <div className="avatar">
-                        <img src="../assets/img/person/person_1.jpg" alt="" />
+                        <img src={post.imageUrl} alt="" />
                     </div>
                     <div className="entry-footer">
-                        <div className="post-author">Sam Newman</div>
+                        <div className="post-author">{post.owner}</div>
                     </div>
                 </div>
                 <div className="body">

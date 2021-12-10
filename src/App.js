@@ -19,7 +19,7 @@ import CreatePost from './components/CreatePost/CreatePost.js'
 
 
 function App() {
-  const [userInfo, setUser] = useState({ isAuth: false, email: '' })
+  const [userInfo, setUser] = useState({ isAuth: false, email: ''})
   useEffect(() => {
     let user = authService.getUsername();
 
@@ -27,7 +27,7 @@ function App() {
       isAuth: Boolean(user),
       user: user
     })
-
+  
 
   }, []);
   const onLogin = (username) => {
@@ -48,6 +48,8 @@ function App() {
       user: ''
     })
   }
+  
+
   return (
     <div id='container'>
       <Header {...userInfo} />
@@ -63,8 +65,6 @@ function App() {
         <Route path='/logout' element={<Logout onLogout={onLogout} />} />
         <Route path='/create-post' element={<CreatePost />} />
       </Routes>
-
-
     </div>
   );
 }
