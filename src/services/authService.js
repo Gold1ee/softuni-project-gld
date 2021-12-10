@@ -1,6 +1,6 @@
 import { jsonRequest } from "../helpers/jsonRequest.js";
 
-const baseUrl = 'http://softuni-student.herokuapp.com/users'
+const baseUrl = 'http://localhost:3030/users'
 
 function getAuthToken(){
     return localStorage.getItem('authToken');

@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 
 import BlogPostCard from "./BlogPostCard/BlogPostCard.js";
 import { Link } from "react-router-dom";
-import createPostService from "../../services/createPostService.js";
+import postService from "../../services/postService.js";
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
   useEffect(()=>{
-      createPostService.getAll()
+      postService.getAll()
       .then(result =>{
         setPosts(result)
       })

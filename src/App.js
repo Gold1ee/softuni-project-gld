@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import authService from "./services/authService.js";
-import createPostService from "./services/createPostService.js"
+
 
 
 
@@ -16,6 +16,8 @@ import Discord from './components/Discord/Discord.js'
 import Faceit from './components/Faceit/Faceit.js'
 import Logout from './components/Logout/Logout.js'
 import CreatePost from './components/CreatePost/CreatePost.js'
+import EditPost from './components/EditPost/EditPost.js'
+import BlogDetails from './components/BlogDetails/BlogDetails.js'
 
 
 function App() {
@@ -64,6 +66,8 @@ function App() {
         <Route path='/discord' element={<Discord />} />
         <Route path='/logout' element={<Logout onLogout={onLogout} />} />
         <Route path='/create-post' element={<CreatePost />} />
+        <Route path='/edit/:postId' element={<EditPost />} />
+        <Route path='/blog/:blogId' element={<BlogDetails />} />
       </Routes>
     </div>
   );

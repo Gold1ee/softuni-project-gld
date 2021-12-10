@@ -1,4 +1,4 @@
-const baseUrl = 'http://softuni-student.herokuapp.com/jsonstore/players'
+const baseUrl = 'http://localhost:3030/jsonstore/players'
 
 export const getAll = async () => {
     let response = await fetch(baseUrl)
