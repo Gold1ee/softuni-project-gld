@@ -14,8 +14,8 @@ const About = () => {
                         <div class="col-lg-6 py-3 pr-lg-5">
                             <h2 class="title-section">We're a <span className="marked">Dynamic</span> Team of international players</h2>
                             <div class="divider"></div>
-                            <p>Although different we work together to achieve results in every aspect. <br />Click below to see detailed information about each member.</p>
-                            <Link to="/player-list" class="btn btn-primary">Player List</Link>
+                            <p>Although different we work together to achieve results in every aspect.</p>
+                           
 
                         </div>
                     </div>
@@ -26,11 +26,11 @@ const About = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-6 py-3 wow fadeInLeft">
-                                <h2 className="title-section">We're <span className="marked">ready to</span> Serve you with best</h2>
+                                <h2 className="title-section">We're <span className="marked">ready to</span> answer your quesitons</h2>
                                 <div className="divider"></div>
-                                <p className="mb-5">We provide marketing services to startups small business to looking for partner for their digital media, design dev lead generation communication.</p>
-                                <Link to="#" className="btn btn-primary">More Details</Link>
-                                <Link to="#" className="btn btn-outline ml-2">See pricing</Link>
+                                <p className="mb-5">We provide a forum where you can ask anything about the game.</p>
+                                <Link to="/blog" className="btn btn-primary">Blog</Link>
+                        
                             </div>
                             <div className="col-lg-6 py-3 wow zoomIn">
                                 <div className="img-place text-center">
