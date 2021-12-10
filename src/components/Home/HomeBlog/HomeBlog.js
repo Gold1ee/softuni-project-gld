@@ -12,6 +12,15 @@ const HomeBlog = () => {
                 setPosts(result)
             })
     }, [])
+    const postsFunc = () => {
+        if (posts !== undefined) {
+            return posts.map(x => <BlogPostCard key={x._id} post={x} />)
+        }
+        else {
+            return null
+        }
+    }
+    const postsFunction = postsFunc()
     return (
         <div className="page-section border-top">
             <div className="container">
@@ -21,7 +30,9 @@ const HomeBlog = () => {
                     <div className="divider mx-auto"></div>
                 </div>
                 <div className="row my-5 card-blog-row">
-                    {posts.map(x => <BlogPostCard key={x._id} post={x} />)}
+                    {postsFunction
+                        ? postsFunction
+                        : <p>Nothing to display!</p>}
                 </div>
 
                 <div className="text-center">
