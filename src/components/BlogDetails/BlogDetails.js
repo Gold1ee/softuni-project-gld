@@ -1,17 +1,29 @@
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import postService from '../../services/postService'
 import authService from '../../services/authService'
+import CommentCard from './CommentCard/CommentCard'
 import { Link } from 'react-router-dom'
 
-const BlogDetails = () => {
+const BlogDetails = ({
+    isAuth,
+    user
+}) => {
+
     const { blogId } = useParams()
     const [blog, setBlog] = useState({});
+    const [errMessage, setErrMessage] = useState()
+    const navigate = useNavigate()
+
+
     useEffect(async () => {
         let post = await postService.getOne(blogId)
         setBlog(post)
     }, [])
+
+
     let ownerId = blog.ownerId
+    let comments = blog.comments
     let currentUserId = authService.getUserId()
     let isOwner = () => {
         if (ownerId !== currentUserId) {
@@ -19,8 +31,42 @@ const BlogDetails = () => {
         }
         return true
     }
-    let isOwned = isOwner()
+    const commentHandler = (e) => {
+        e.preventDefault()
+        try {
 
+            let formData = new FormData(e.currentTarget)
+            let commentMessage = formData.get('msg')
+            if (commentMessage == '') {
+                throw new Error('Comment cannot be empty!')
+            }
+            let comment = {
+                _id: blog.commentCount,
+                username: user,
+                commentMessage: commentMessage
+            }
+            let commentsArray = blog.comments || []
+            commentsArray.push(comment)
+            blog.comments = commentsArray
+            blog.commentCount += 1
+            postService.editPost(blog, blogId)
+            navigate(`/blog/${blog._id}`)
+
+        } catch (e) {
+            setErrMessage(e.message)
+        }
+
+    }
+    const commentsFunc = () => {
+        if (comments !== undefined) {
+            return comments.map(x => <CommentCard key={x._id} comment={x} />)
+        }
+        else {
+            return null
+        }
+    }
+    let isOwned = isOwner()
+    let commentsFunction = commentsFunc()
 
     return (
         <div className="page-section pt-5" >
@@ -32,6 +78,7 @@ const BlogDetails = () => {
                         <li className="breadcrumb-item active">Second divided from form fish beastr</li>
                     </ul>
                 </nav>
+
 
                 <div className="row">
                     <div className="col-lg-8">
@@ -46,6 +93,11 @@ const BlogDetails = () => {
                                             <img src={blog.imageUrl} alt="" />
                                         </div>
                                         by <a href="#">{blog.owner}</a>
+                                    </div>
+                                    <div className="post-comment-count ml-2">
+                                        <span className="icon">
+                                            <span className="mai-chatbubbles-outline"></span>
+                                        </span> <a href="#">{blog.commentCount} Comments</a>
                                     </div>
                                 </div>
                             </div>
@@ -65,11 +117,36 @@ const BlogDetails = () => {
                                 : null}
 
                         </div>
+                        {isAuth
+                            ? <div className="comment-form-wrap pt-5">
+                                <h2 className="mb-5">Leave a comment</h2>
+                                <p className="form-link error">{errMessage}</p>
+                                <form onSubmit={commentHandler} className="">
+                                    <div className="form-group">
+                                        <label htmlFor="website">Username</label>
+                                        <input type="url" className="form-control" id="website" name='username' disabled defaultValue={user} />
+                                    </div>
 
+                                    <div className="form-group">
+                                        <label htmlFor="message">Comment</label>
+                                        <textarea name="msg" id="message" cols="30" rows="8" className="form-control" defaultValue={''} ></textarea>
+                                    </div>
+                                    <div className="form-group">
+                                        <input type="submit" value="Post Comment" className="btn btn-primary" />
+                                    </div>
 
-
+                                </form>
+                            </div>
+                            : null
+                        }
+                        <div className="comment-form-wrap pt-5">
+                            <h2 className="mb-5">Comment Section</h2>
+                            {commentsFunction
+                            ? commentsFunction
+                            : <p>No comments to display!</p>}
+                        </div>
                     </div>
-
+                    { }
                 </div>
 
             </div>

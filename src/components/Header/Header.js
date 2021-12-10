@@ -65,7 +65,7 @@ const Header = ({ isAuth, user }) => {
                         <li className="nav-item ">
                             <Link to="/" className="nav-link">Home</Link>
                         </li>
-                        <li className="nav-item active">
+                        <li className="nav-item">
                             <Link to="/about" className="nav-link">About</Link>
                         </li>
                         <li className="nav-item">

@@ -25,6 +25,7 @@ const CreatePost = () => {
             owner: username,
             ownerId: ownerId,
             thumbnailImage: thumbnailImage,
+            commentCount: 0,
         }
 
         try {

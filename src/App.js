@@ -13,7 +13,6 @@ import Login from './components/Login/Login.js'
 import Register from './components/Register/Register.js'
 import Blog from './components/Blog/Blog.js'
 import Discord from './components/Discord/Discord.js'
-import Faceit from './components/Faceit/Faceit.js'
 import Logout from './components/Logout/Logout.js'
 import CreatePost from './components/CreatePost/CreatePost.js'
 import EditPost from './components/EditPost/EditPost.js'
@@ -63,13 +62,12 @@ function App() {
         <Route path='/login' element={<Login onLogin={onLogin} />} />
         <Route path='/register' element={<Register onRegister={onRegister} />} />
         <Route path='/blog' element={<Blog />} />
-        <Route path='/faceit' element={<Faceit />} />
         <Route path='/discord' element={<Discord />} />
         <Route path='/logout' element={<Logout onLogout={onLogout} />} />
         <Route path='/create-post' element={<CreatePost />} />
         <Route path='/edit/:postId' element={<EditPost />} />
         <Route path='/delete/:postId' element={<DeletePost />} />
-        <Route path='/blog/:blogId' element={<BlogDetails />} />
+        <Route path='/blog/:blogId' element={<BlogDetails {...userInfo}/>} />
       </Routes>
     </div>
   );
