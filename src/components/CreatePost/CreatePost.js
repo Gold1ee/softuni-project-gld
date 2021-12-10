@@ -6,6 +6,7 @@ import authService from '../../services/authService'
 
 const CreatePost = () => {
     const navigate = useNavigate()
+    const [errMessage, setErrMessage] = useState()
     const username = authService.getUsername()
     const userImage = authService.getUserImage()
     const ownerId = authService.getUserId()
@@ -22,22 +23,35 @@ const CreatePost = () => {
             description: description,
             imageUrl: userImage,
             owner: username,
-            ownerId:ownerId,
-            thumbnailImage:thumbnailImage,
+            ownerId: ownerId,
+            thumbnailImage: thumbnailImage,
         }
-        let result = postService.createPost(post)
 
-        //let result = await createPostService.getUserInfo()
-        //console.log(result);
+        try {
+            if (post.title == '') {
+                throw new Error('Title is required!')
+            }
+            if (post.miniDescription == '') {
+                throw new Error('Mini description is required!')
+            }
+            if (post.description == '') {
+                throw new Error('Description is required!')
+            }
+            if (post.thumbnailImage == '') {
+                throw new Error('Thumbnail is required! ')
+            }
+            let result = postService.createPost(post)
+            navigate('/blog')
+        } catch (e) {
+            setErrMessage(e.message)
+        }
 
-
-
-        navigate('/blog')
     }
     return (
         <div className="create-post">
             <div className="comment-form-wrap pt-5">
                 <h2 className="mb-5">Create a post</h2>
+                <p className="form-link error">{errMessage}</p>
                 <form onSubmit={createPostHandler} className="">
                     <div className="form-row form-group">
 
@@ -50,17 +64,17 @@ const CreatePost = () => {
                             <input type="mini-description" className="form-control" id="mini-description" name="mini-description" />
                         </div>
                     </div>
-                        <div className="form-group">
-                            <label htmlFor="email">Username</label>
-                            <input type="text" className="form-control" id="email" name="email" defaultValue={username} disabled/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">Thumbnail URL</label>
-                            <input type="text" className="form-control" id="imageUrl" name="imageUrl"/>
-                        </div>
+                    <div className="form-group">
+                        <label htmlFor="email">Username</label>
+                        <input type="text" className="form-control" id="email" name="email" defaultValue={username} disabled />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="email">Thumbnail URL *</label>
+                        <input type="text" className="form-control" id="imageUrl" name="imageUrl" />
+                    </div>
 
                     <div className="form-group">
-                        <label htmlFor="description">Description</label>
+                        <label htmlFor="description">Description *</label>
                         <textarea name="description" id="description" cols="30" rows="8" className="form-control"></textarea>
                     </div>
                     <div className="form-group">

@@ -17,6 +17,7 @@ import Faceit from './components/Faceit/Faceit.js'
 import Logout from './components/Logout/Logout.js'
 import CreatePost from './components/CreatePost/CreatePost.js'
 import EditPost from './components/EditPost/EditPost.js'
+import DeletePost from './components/DeletePost/DeletePost.js'
 import BlogDetails from './components/BlogDetails/BlogDetails.js'
 
 
@@ -67,6 +68,7 @@ function App() {
         <Route path='/logout' element={<Logout onLogout={onLogout} />} />
         <Route path='/create-post' element={<CreatePost />} />
         <Route path='/edit/:postId' element={<EditPost />} />
+        <Route path='/delete/:postId' element={<DeletePost />} />
         <Route path='/blog/:blogId' element={<BlogDetails />} />
       </Routes>
     </div>

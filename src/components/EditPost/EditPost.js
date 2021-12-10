@@ -7,6 +7,7 @@ import authService from '../../services/authService'
 
 const CreatePost = () => {
     const navigate = useNavigate()
+    const [errMessage, setErrMessage] = useState()
     const username = authService.getUsername()
     const userImage = authService.getUserImage()
     const ownerId = authService.getUserId()
@@ -33,19 +34,36 @@ const CreatePost = () => {
             ownerId: ownerId,
             thumbnailImage: thumbnailImage
         }
-        let result = postService.editPost(post, postId)
+        try {
+            if (post.title == '') {
+                throw new Error('Title is required!')
+            }
+            if (post.miniDescription == '') {
+                throw new Error('Mini description is required!')
+            }
+            if (post.description == '') {
+                throw new Error('Description is required!')
+            }
+            if (post.thumbnailImage == '') {
+                throw new Error('Thumbnail is required! ')
+            }
+            let result = postService.editPost(post, postId)
+            navigate(`/blog/${postId}`)
+        } catch (e) {
+            setErrMessage(e.message)
+        }
 
         //let result = await createPostService.getUserInfo()
         //console.log(result);
 
 
 
-        navigate(`/blog/${postId}`)
     }
     return (
         <div className="create-post">
             <div className="comment-form-wrap pt-5">
                 <h2 className="mb-5">Edit your post</h2>
+                <p className="form-link error">{errMessage}</p>
                 <form onSubmit={createPostHandler} className="">
                     <div className="form-row form-group">
 

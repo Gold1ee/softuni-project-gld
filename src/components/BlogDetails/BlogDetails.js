@@ -60,7 +60,7 @@ const BlogDetails = () => {
                             {isOwned
                                 ? <div className="post-content">
                                     <Link to={`/edit/${blog._id}`} className="btn btn-primary">Edit</Link>
-                                    <Link to="/delete" className="btn btn-primary ml-2">Delete</Link>
+                                    <Link to={`/delete/${blog._id}`} className="btn btn-primary ml-2">Delete</Link>
                                 </div>
                                 : null}
 

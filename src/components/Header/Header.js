@@ -27,9 +27,6 @@ const Header = ({ isAuth, user }) => {
                         <li className="nav-item ">
                             <Link to="/about" className='nav-link'>About</Link>
                         </li>
-                        <li className="nav-item ">
-                            <Link to="/player-list" className='nav-link'>Player List</Link>
-                        </li>
                         <li className="nav-item">
                             <Link to="/blog" className='nav-link'>Blog</Link>
                         </li>
@@ -70,9 +67,6 @@ const Header = ({ isAuth, user }) => {
                         </li>
                         <li className="nav-item active">
                             <Link to="/about" className="nav-link">About</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/player-list" className="nav-link">Player List</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/blog" className="nav-link">Blog</Link>

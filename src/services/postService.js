@@ -10,6 +10,10 @@ async function editPost(post, postId) {
     let result = await jsonRequest(`${baseUrl}/${postId}`, 'Put', post)
     return result
 }
+async function deletePost(postId) {
+    let result = await jsonRequest(`${baseUrl}/${postId}`, 'delete')
+    return result
+}
 async function getAll() {
     let posts = await jsonRequest(baseUrl)
     let result = Object.values(posts)
@@ -29,5 +33,6 @@ export default {
     getAll,
     getOne,
     getUserInfo,
-    editPost
+    editPost,
+    deletePost
 }
