@@ -40,8 +40,7 @@ async function register(user){
 }
 
 async function logout(user){
-    await jsonRequest(`${baseUrl}/logout`, 'Get', undefined, true, true);
-    localStorage.clear();
+    window.localStorage.clear();
 }
 
 export default {

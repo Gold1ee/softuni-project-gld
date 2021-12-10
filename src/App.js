@@ -45,6 +45,7 @@ function App() {
     })
   }
   const onLogout = () => {
+    authService.logout()
     setUser({
       isAuth: false,
       user: ''
